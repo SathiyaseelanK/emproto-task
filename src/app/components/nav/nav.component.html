@@ -38,11 +38,15 @@
         </li>
     </ul>
     <!-- End of Sidebar -->
-    <mat-menu #menu="matMenu">
+    <mat-menu #menu="matMenu" xPosition="after">
         <button mat-menu-item (click)="navigate('/dashboard')">
-            <span>Continental</span>
+            <span> 
+                <mat-icon>public</mat-icon>
+                Continental</span>
         </button>
         <button mat-menu-item (click)="navigate('/country-dashboard')">
-            <span>Countries</span>
+            <span>
+                <mat-icon>flag_circle</mat-icon>
+                Countries</span>
         </button>
     </mat-menu>

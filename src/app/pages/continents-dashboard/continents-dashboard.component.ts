@@ -54,7 +54,7 @@ export class ContinentDashboardComponent implements OnInit {
     
     
         legend: {
-          enabled: false
+          enabled: true
         },
     
         mapNavigation: {

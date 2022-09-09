@@ -13,7 +13,7 @@ import HighCharts from "highcharts/highmaps";
   styleUrls: ['./country-dashboard.component.scss']
 })
 export class CountryDashboardComponent implements OnInit {
-
+  countryName = 'IN';
   HighCharts = HighCharts;
   chartConstructor = "mapChart";
   tableData:any = [];
@@ -22,6 +22,7 @@ export class CountryDashboardComponent implements OnInit {
   totalConfirmed: number = 0;
   totalDeaths: number = 0;
   totalRecovered: number = 0;
+  countryList: any[] = []
   constructor(
     private covidService: CovidService,
     private mapService: MapService) { }
@@ -32,7 +33,7 @@ export class CountryDashboardComponent implements OnInit {
   }
 
   private createContinentsMap() {
-    this.mapService.getCountyMapByName('in').subscribe(async (worldMap) => {
+    this.mapService.getCountyMapByName(this.countryName.toLowerCase()).subscribe(async (worldMap) => {
       const bubbleData: MapBubble[] =await  this.getCountryBubbles();
       this.chartOptions =  {
         chart: {
@@ -141,36 +142,38 @@ export class CountryDashboardComponent implements OnInit {
   private getCountryBubbles(): Promise<MapBubble[]> {
     return new Promise((resolve) => {
       this.covidService.getSpecificCountry('in').subscribe((countryData: Countries) => {
-        console.log('countryData', countryData)
-        const bubbleData: MapBubble[] = [];
-        // for (let index = 0; index < countryData.length; index++) {
-        //   const element = countryData[index];
-        //   bubbleData.push({
-        //     code3: element.countryInfo.iso2,
-        //     z: element.cases,
-        //     countryName: element.country
-        //   })
-        // }
+        const bubbleData: MapBubble[] = [{
+          code3: countryData.countryInfo.iso2,
+          z: countryData.active,
+          countryName: countryData.country
+        }];
         resolve(bubbleData);
       });
     })
   }
 
   public getAllContinentCases(): void {
-    this.covidService.getAllCountries().subscribe((continents: Countries[]) => {
-      const allContnents = continents;
+    this.covidService.getAllCountries().subscribe((countries: Countries[]) => {
+      const allContnents = countries;
       for (let index = 0; index < allContnents.length; index++) {
         const element = allContnents[index];
         this.totalConfirmed += element.cases;
         this.totalDeaths += element.deaths;
         this.totalRecovered += element.recovered;
         this.tableData.push({
-          code3: element.continent,
+          code3: element.country,
           z: element.cases,
         })
+        this.countryList.push({code : element.countryInfo.iso2, desc: element.country});
       }
-      this
     })
+  }
+
+  loadChart(countryName: string) {
+    console.log(countryName);
+    this.chartOptions = null;
+    this.countryName= countryName;
+    this.createContinentsMap();
   }
 
 

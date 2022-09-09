@@ -5,6 +5,10 @@ import { ComponentsModule } from '../components/components.module';
 import { RouterModule, Routes } from '@angular/router';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { CountryDashboardComponent } from './country-dashboard/country-dashboard.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+
 
 const routes: Routes = [
   {
@@ -26,7 +30,10 @@ const routes: Routes = [
     CommonModule,
     ComponentsModule,
     RouterModule.forChild(routes),
-    HighchartsChartModule
+    HighchartsChartModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    NgxSkeletonLoaderModule
   ]
 })
 export class PagesModule { }

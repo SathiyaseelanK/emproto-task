@@ -1,3 +1,4 @@
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CountCardComponent } from './count-card/count-card.component';
@@ -10,6 +11,7 @@ import { HighchartsChartModule } from 'highcharts-angular';
 
 import {MatMenuModule} from '@angular/material/menu';
 import { NavComponent } from './nav/nav.component';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { NavComponent } from './nav/nav.component';
   imports: [
     CommonModule,
     HighchartsChartModule,
-    MatMenuModule
+    MatMenuModule,
+    NgxSkeletonLoaderModule,
+    MatIconModule
   ],
   exports: [
     CountCardComponent,

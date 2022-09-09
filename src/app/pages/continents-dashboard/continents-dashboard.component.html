@@ -21,6 +21,9 @@
                     <div class="row m-4  emp-card">
                         <div class="col-8 pl-0">
                             <div class="card emp-card-chart">
+                                <div *ngIf="!chartOptions" style="width: 100%; height: 400px; display: block;">
+                                    <ngx-skeleton-loader count="10" ></ngx-skeleton-loader>
+                                </div>
                                 <div class="card-body">
                                     <highcharts-chart *ngIf="chartOptions"
                                     id="container" 

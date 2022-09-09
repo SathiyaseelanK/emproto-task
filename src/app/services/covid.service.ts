@@ -29,7 +29,14 @@ export class CovidService {
     return this.apiService.get(`${environment.apiUrl + environment.cumulativeAll}`);
   }
 
+  public getSpecificCumulative(countryName: string):Observable<LastDaysHistory>{
+    return this.apiService.get(`${environment.apiUrl + environment.history+ countryName}`);
+  }
+
   public getLastDaysHistoryAll(days: number):Observable<HistoricalData> {
     return this.apiService.get(`${environment.apiUrl + environment.lastDaysHistoryAll+ days}`);
+  }
+  public getSpecificLastDaysHistory(countryName: string, days: number):Observable<LastDaysHistory> {
+    return this.apiService.get(`${environment.apiUrl + environment.lastDaysHistory+countryName+'?lastdays=' + days}`);
   }
 }

@@ -7,5 +7,7 @@ export const environment = {
   specificCountry: 'countries/',
   suffix: '?yesterday=&strict=',
   cumulativeAll:'historical/all',
-  lastDaysHistoryAll: 'historical/all?lastdays='
+  history: 'historical/',
+  lastDaysHistoryAll: 'historical/all?lastdays=',
+  lastDaysHistory: 'historical/in?lastdays='
 };

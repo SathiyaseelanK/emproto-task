@@ -11,7 +11,9 @@ export const environment = {
   specificCountry: 'countries/',
   suffix: '?yesterday=&strict=',
   cumulativeAll:'historical/all',
-  lastDaysHistoryAll: 'historical/all?lastdays='
+  lastDaysHistoryAll: 'historical/all?lastdays=',
+  history: 'historical/',
+  lastDaysHistory: 'historical/'
 };
 
 /*
