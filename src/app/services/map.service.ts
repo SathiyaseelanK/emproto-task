@@ -9,7 +9,12 @@ export class MapService {
 
   constructor(private apiService: ApiService) { }
 
-  public getCountryMap():Observable<any> {
+  public getAllCountryMap():Observable<any> {
     return this.apiService.get('../../assets/map/custom/world.geo.json');
   }
+
+  getCountyMapByName(countryName: string): Observable<any> {
+    return this.apiService.get(`../../assets/map/countries/${countryName}/${countryName}-all.geo.json`);
+  }
+
 }

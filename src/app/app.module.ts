@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { PagesModule } from './pages/pages.module';
 import { ApiService } from './services/api.service';
 import { CovidService } from './services/covid.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { CovidService } from './services/covid.service';
     AppRoutingModule,
     PagesModule,
     HttpClientModule,
-    HighchartsChartModule
+    HighchartsChartModule,
+    BrowserAnimationsModule,
+    MatMenuModule
   ],
   providers: [
     ApiService,

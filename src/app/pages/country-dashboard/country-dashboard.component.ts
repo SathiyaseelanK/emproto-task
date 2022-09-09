@@ -8,11 +8,12 @@ import { Component, OnInit } from '@angular/core';
 import HighCharts from "highcharts/highmaps";
 
 @Component({
-  selector: 'emproto-dashboard',
-  templateUrl: './continents-dashboard.component.html',
-  styleUrls: ['./continents-dashboard.component.scss']
+  selector: 'emproto-country-dashboard',
+  templateUrl: './country-dashboard.component.html',
+  styleUrls: ['./country-dashboard.component.scss']
 })
-export class ContinentDashboardComponent implements OnInit {
+export class CountryDashboardComponent implements OnInit {
+
   HighCharts = HighCharts;
   chartConstructor = "mapChart";
   tableData:any = [];
@@ -31,7 +32,7 @@ export class ContinentDashboardComponent implements OnInit {
   }
 
   private createContinentsMap() {
-    this.mapService.getAllCountryMap().subscribe(async (worldMap) => {
+    this.mapService.getCountyMapByName('in').subscribe(async (worldMap) => {
       const bubbleData: MapBubble[] =await  this.getCountryBubbles();
       this.chartOptions =  {
         chart: {
@@ -49,7 +50,7 @@ export class ContinentDashboardComponent implements OnInit {
         },
     
         title: {
-          text: "Confirmed cases by Continents",
+          text: "Confirmed cases by Country",
         },
     
     
@@ -139,23 +140,24 @@ export class ContinentDashboardComponent implements OnInit {
 
   private getCountryBubbles(): Promise<MapBubble[]> {
     return new Promise((resolve) => {
-      this.covidService.getAllCountries().subscribe((countryData: Countries[]) => {
+      this.covidService.getSpecificCountry('in').subscribe((countryData: Countries) => {
+        console.log('countryData', countryData)
         const bubbleData: MapBubble[] = [];
-        for (let index = 0; index < countryData.length; index++) {
-          const element = countryData[index];
-          bubbleData.push({
-            code3: element.countryInfo.iso2,
-            z: element.cases,
-            countryName: element.country
-          })
-        }
+        // for (let index = 0; index < countryData.length; index++) {
+        //   const element = countryData[index];
+        //   bubbleData.push({
+        //     code3: element.countryInfo.iso2,
+        //     z: element.cases,
+        //     countryName: element.country
+        //   })
+        // }
         resolve(bubbleData);
       });
     })
   }
 
   public getAllContinentCases(): void {
-    this.covidService.getAllContinents().subscribe((continents: Continents[]) => {
+    this.covidService.getAllCountries().subscribe((continents: Countries[]) => {
       const allContnents = continents;
       for (let index = 0; index < allContnents.length; index++) {
         const element = allContnents[index];

@@ -4,17 +4,23 @@ import { ContinentDashboardComponent } from './continents-dashboard/continents-d
 import { ComponentsModule } from '../components/components.module';
 import { RouterModule, Routes } from '@angular/router';
 import { HighchartsChartModule } from 'highcharts-angular';
+import { CountryDashboardComponent } from './country-dashboard/country-dashboard.component';
 
 const routes: Routes = [
   {
     path: '',
     component: ContinentDashboardComponent,
+  },
+  {
+    path:'country-dashboard',
+    component: CountryDashboardComponent
   }
 ]
 
 @NgModule({
   declarations: [
-    ContinentDashboardComponent
+    ContinentDashboardComponent,
+    CountryDashboardComponent
   ],
   imports: [
     CommonModule,

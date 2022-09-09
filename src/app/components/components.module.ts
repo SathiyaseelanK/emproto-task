@@ -8,6 +8,8 @@ import { GlobalChartComponent } from './global-chart/global-chart.component';
 import { GlobalTableComponent } from './global-table/global-table.component';
 import { HighchartsChartModule } from 'highcharts-angular';
 
+import {MatMenuModule} from '@angular/material/menu';
+import { NavComponent } from './nav/nav.component';
 
 
 @NgModule({
@@ -17,11 +19,13 @@ import { HighchartsChartModule } from 'highcharts-angular';
     CumulativeChartComponent,
     DailyConfirmedComponent,
     GlobalChartComponent,
-    GlobalTableComponent
+    GlobalTableComponent,
+    NavComponent
   ],
   imports: [
     CommonModule,
-    HighchartsChartModule
+    HighchartsChartModule,
+    MatMenuModule
   ],
   exports: [
     CountCardComponent,
@@ -29,7 +33,8 @@ import { HighchartsChartModule } from 'highcharts-angular';
     CumulativeChartComponent,
     DailyConfirmedComponent,
     GlobalChartComponent,
-    GlobalTableComponent
+    GlobalTableComponent,
+    NavComponent
   ]
 })
 export class ComponentsModule { }
