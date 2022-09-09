@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiUrl: 'https://disease.sh/v2/',
+  allContinents: 'continents?yesterday=true&sort=',
+  allCountries: 'countries?yesterday=&sort=',
+  specificContinent: 'continents/',
+  specificCountry: 'countries/',
+  suffix: '?yesterday=&strict=',
+  cumulativeAll:'historical/all',
+  lastDaysHistoryAll: 'historical/all?lastdays='
 };
 
 /*

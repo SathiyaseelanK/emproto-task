@@ -1,0 +1,10 @@
+<div class="card">
+    <div class="card-body">
+        <highcharts-chart *ngIf="chartOptions"
+            id="daily" 
+            [Highcharts]="HighCharts"
+            [options]="chartOptions"
+            style="width: 100%; height: 220px; display: block; border: 1px solid grey; border-radius: 15px;">
+        </highcharts-chart>
+    </div>
+</div>

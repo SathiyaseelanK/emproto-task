@@ -1,0 +1,16 @@
+<div class="card">
+    <div class="card-body">
+        <div class="emp-card-title">
+            <ng-container *ngIf="countType === countCards.Confirmed">Total Confirmed</ng-container>
+            <ng-container *ngIf="countType === countCards.Death">Total Deaths</ng-container>
+            <ng-container *ngIf="countType === countCards.Recovered">Total Recovered</ng-container>
+        </div>
+        <div class="emp-card-sub" [ngClass]="{
+            'color-confirmed': countType === 1,
+            'color-deaths': countType === 2,
+            'color-recovered': countType === 3}">{{numberWithCommas(count)}}</div>
+        <div class="card-footer-img">
+            <img src="../../../assets/img/coronavirus.png" width="40px">
+        </div>
+    </div>
+</div>

@@ -1,1 +1,141 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("./assets/css/sb-admin-2.css");
+
+.wrapper {
+    margin: 1rem;
+}
+
+.bg-gradient-primary {
+    border-radius: 20px 0 0 20px;
+}
+
+.nav-item{
+    margin: 1em;
+
+    .nav-link{
+        margin-left: 1em;
+        text-align: unset !important;
+    }
+    .nav-text {
+        margin-top: .5em;
+        font-size: 14px !important;
+        text-align: center;
+        margin-left: -2.4rem;
+    }
+} 
+
+.nav-item.active {
+    background-color: white;
+    margin: 1em;
+    transform: translateX(14px);
+    border-radius: 15px 0 0 15px;
+    .nav-link {
+        text-align: unset !important;
+        padding: 1.75rem 1rem !important;
+        margin-left: 1em;
+    }
+    svg {
+        fill: #6610f2;
+    }
+    .nav-text {
+        margin-top: .5em;
+        font-size: 14px !important;
+        color: grey;
+        padding-left: 0.3em;
+    }
+}
+
+.sidebar.toggled {
+    width: 8.5rem !important;
+}
+
+.card {
+    border: none !important;
+    border-radius: 20px !important;
+    box-shadow: 0 0 .50rem rgba(0,0,0,0.05)!important;
+}
+
+.card-footer-img {
+    display: flex;
+    justify-content: end;
+    margin-top: -2rem;
+}
+
+.emp-card-title {
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.emp-card-sub {
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.emp-card {
+    background-color: #4e73df;
+    background-image: linear-gradient(180deg, #4e73df 10%, #224abe 100%);
+    border-radius:20px !important;
+    .card {
+        border-radius: 0 !important;
+        background:none !important;
+        box-shadow: none !important;
+    }
+    .emp-card-chart {
+        background: white !important;
+        border-radius:20px !important;
+    }
+
+}
+
+.emp-card-bg {
+    background-image: url("./assets/img/card-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%  100%;
+    height: 200px;
+    border-radius: 20px;
+}
+
+.confirmed-count {
+    color: '#EE6161';
+}
+
+.total-death-count {
+    color: '#9B1A1A';
+}
+
+.total-deaths-count {
+    color: '229B1A';
+}
+.highcharts-title {
+    font-weight: bold !important;
+}
+
+.table-column {
+    color: white;
+}
+
+.fs-2 {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.highcharts-series-0 .highcharts-point {
+    fill: #709BFA;
+}
+
+.color-confirmed {
+    color: #EE6161 !important;
+}
+
+.color-deaths {
+    color: #9C1A1A !important;
+}
+
+.color-recovered {
+    color: #229B1A !important;
+}
+
