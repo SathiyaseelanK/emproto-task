@@ -32,7 +32,7 @@ export class CountryDashboardComponent implements OnInit {
   }
 
   private createContinentsMap() {
-    this.mapService.getCountryMap().subscribe(async (worldMap) => {
+    this.mapService.getCountyMapByName('in').subscribe(async (worldMap) => {
       const bubbleData: MapBubble[] =await  this.getCountryBubbles();
       this.chartOptions =  {
         chart: {
@@ -50,7 +50,7 @@ export class CountryDashboardComponent implements OnInit {
         },
     
         title: {
-          text: "Confirmed cases by Continents",
+          text: "Confirmed cases by Country",
         },
     
     
@@ -140,23 +140,24 @@ export class CountryDashboardComponent implements OnInit {
 
   private getCountryBubbles(): Promise<MapBubble[]> {
     return new Promise((resolve) => {
-      this.covidService.getAllCountries().subscribe((countryData: Countries[]) => {
+      this.covidService.getSpecificCountry('in').subscribe((countryData: Countries) => {
+        console.log('countryData', countryData)
         const bubbleData: MapBubble[] = [];
-        for (let index = 0; index < countryData.length; index++) {
-          const element = countryData[index];
-          bubbleData.push({
-            code3: element.countryInfo.iso2,
-            z: element.cases,
-            countryName: element.country
-          })
-        }
+        // for (let index = 0; index < countryData.length; index++) {
+        //   const element = countryData[index];
+        //   bubbleData.push({
+        //     code3: element.countryInfo.iso2,
+        //     z: element.cases,
+        //     countryName: element.country
+        //   })
+        // }
         resolve(bubbleData);
       });
     })
   }
 
   public getAllContinentCases(): void {
-    this.covidService.getAllContinents().subscribe((continents: Continents[]) => {
+    this.covidService.getAllCountries().subscribe((continents: Countries[]) => {
       const allContnents = continents;
       for (let index = 0; index < allContnents.length; index++) {
         const element = allContnents[index];

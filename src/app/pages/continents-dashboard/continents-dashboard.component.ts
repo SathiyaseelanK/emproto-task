@@ -31,7 +31,7 @@ export class ContinentDashboardComponent implements OnInit {
   }
 
   private createContinentsMap() {
-    this.mapService.getCountryMap().subscribe(async (worldMap) => {
+    this.mapService.getAllCountryMap().subscribe(async (worldMap) => {
       const bubbleData: MapBubble[] =await  this.getCountryBubbles();
       this.chartOptions =  {
         chart: {
